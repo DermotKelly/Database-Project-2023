@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "database_sqlite-1",
+			"path": "database_sqlite-1"
+		}
+	],
+	"settings": {}
+}
