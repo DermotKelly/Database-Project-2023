@@ -11,6 +11,7 @@ app = Flask(__name__)
  
 #file_path = os.path.abspath(os.getcwd())+"/blog.db"
 
+#Create a flask instance
 app = Flask(__name__)
 app.config.from_object(Config)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/mrder/Database Project 2023/blog.db'
@@ -34,6 +35,8 @@ class BlogPost(db.Model):
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+#Create a route decorator and define index
 
 @app.route('/')
 def index():
@@ -135,7 +138,16 @@ def stats():
 with app.app_context():
     db.create_all()
 
+#Create Coustom Error pages
+#Invaild URL
+@app.errorhandler(404)
+def page_not_found (e):
+    return render_template('404.html'), 404
 
+#Internal Sever Error
+@app.errorhandler(500)
+def page_not_found (e):
+    return render_template('500.html'), 500
 
 
 if __name__ == '__main__':
