@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 app = Flask(__name__)
 app.config.from_object(Config)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/mrder/Database Project 2023/blog.db'
 app.config['SECRET_KEY'] = 'your_secret_key'
 db = SQLAlchemy(app)    
 login_manager = LoginManager(app)
